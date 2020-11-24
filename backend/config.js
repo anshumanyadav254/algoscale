@@ -1,4 +1,4 @@
 module.exports = {
-    USER: 'anshumanyadav254@gmail.com', 
-    PASS: 'sjzwrlduifdushaa'
+    USER: 'Enter you email '
+    PASS: 'Enter app possword'
 }
