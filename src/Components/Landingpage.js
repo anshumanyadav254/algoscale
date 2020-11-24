@@ -3,10 +3,10 @@ import React, { Component } from "react";
 import FacebookLogin from "react-facebook-login";
 
 import GoogleLogin from "react-google-login";
-import { Redirect } from 'react-router-dom'
-
+//import { Redirect } from 'react-router-dom'
 
 class Landingpage extends Component {
+
 
     state = {
         redirect: null
@@ -19,18 +19,22 @@ class Landingpage extends Component {
       
 
   render() {
-    const responseFacebook = (response) => {
-      console.log(response);
-    };
+    // const responseFacebook = (response) => {
+    //   console.log(response);
+    // };
 
-   const renderRedirect = () => {
-        if (this.state.redirect) {
-          return <Redirect to={this.state.redirect} />
-        }
-      }
+  //  const RenderRedirect = () => {
+
+  //   console.log("In Success")
+  //    console.log(this.state)
+  //    return <Redirect to="/contact" />
+
+        
+  //     }
 
     const responseGoogle = (response) => {
-      
+      console.log("In fail")
+
       console.log(response);
     };
 
@@ -43,7 +47,7 @@ class Landingpage extends Component {
           autoLoad={false}
 
           fields="name,email,picture"
-          callback={responseFacebook}
+          callback={()=> this.props.history.push('/contact')}
         />
         <br />
         <br />
@@ -51,7 +55,7 @@ class Landingpage extends Component {
         <GoogleLogin
           clientId="15828300144-14mtu29gd3kepgmtip2b1b03mtul94kp.apps.googleusercontent.com"
           buttonText="LOGIN WITH GOOGLE"
-          onSuccess={renderRedirect}
+          onSuccess={()=> this.props.history.push('/contact')}
           onFailure={responseGoogle}
         />
       </div>
